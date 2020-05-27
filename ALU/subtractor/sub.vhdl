@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity fa is
+entity sub is
     port(
         a	: in std_logic;
         b	: in std_logic;
@@ -9,10 +9,10 @@ entity fa is
         cout: out std_logic;
         s	: out std_logic
     );
-end fa;
+end sub;
 
-architecture behave of fa is
+architecture behave of sub is
 begin
     s <= (a xor b) xor cin;
-    cout <= (a and b) or (b and cin) or (a and cin);    
+    cout <= (not a and b) or (b and cin) or (not a and cin);    
 end behave;
