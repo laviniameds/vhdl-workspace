@@ -1,14 +1,14 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity not is
+entity NOT2 is
     port(
         a   : in std_logic;
         c   : out std_logic
     );
-end not;
+end NOT2;
 
-architecture behave of not is
+architecture BEHAVE of NOT2 is
 begin
     c <= not a;
-end behave;
+end BEHAVE;

@@ -10,42 +10,42 @@ entity cell is
 end cell;
 
 architecture behave of cell is
-    component and is
+    component AND2 is
         port(
             x, y: in std_logic;
             z   : out std_logic
         );
     end component;
 
-    component or is
+    component OR2 is
         port(
             x, y: in std_logic;
             z   : out std_logic
         );
     end component;
 
-    component xor is
+    component XOR2 is
         port(
             x, y: in std_logic;
             z   : out std_logic
         );
     end component;
 
-    component not is
+    component NOT2 is
         port(
             x   : in std_logic;
             z   : out std_logic
         );
     end component;
 
-    component full_adder is 
+    component FA is 
         port(
             x, y, cin: is std_logic;
             z, cout   : out std_logic
         );
     end component;
 
-    component subtractor is 
+    component FS is 
     port(
         x, y, cin: is std_logic;
         z, cout   : out std_logic

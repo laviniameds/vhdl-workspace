@@ -1,14 +1,14 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity or is
+entity OR2 is
     port(
         a, b: in std_logic;
         c   : out std_logic
     );
-end or;
+end OR2;
 
-architecture behave of or is
+architecture BEHAVE of OR2 is
 begin
     c <= a or b;
-end behave;
+end BEHAVE;
