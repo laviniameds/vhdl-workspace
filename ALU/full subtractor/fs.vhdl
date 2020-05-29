@@ -3,11 +3,8 @@ use IEEE.std_logic_1164.all;
 
 entity FS is
     port(
-        a	: in std_logic;
-        b	: in std_logic;
-        cin	: in std_logic;
-        cout: out std_logic;
-        s	: out std_logic
+        a, b, cin : in std_logic;
+        cout, s   : out std_logic
     );
 end FS;
 
