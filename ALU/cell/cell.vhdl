@@ -1,75 +1,84 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity cell is
-    port(
-        a, b, cin   : in std_logic;
-        sel         : in std_logic_vector(2 downto 0);
-        s, cout     : out std_logic
+ENTITY cell IS
+    PORT (
+        a, b, cin : IN std_logic;
+        sel : IN std_logic_vector(2 DOWNTO 0);
+        s, cout : OUT std_logic
     );
-end cell;
+END cell;
 
-architecture behave of cell is
-    component AND2 is
-        port(
-            a, b : in std_logic;
-            c    : out std_logic
+ARCHITECTURE behave OF cell IS
+    COMPONENT AND2 IS
+        PORT (
+            a, b : IN std_logic;
+            c : OUT std_logic
         );
-    end component;
+    END COMPONENT;
 
-    component OR2 is
-        port(
-            a, b: in std_logic;
-            c   : out std_logic
+    COMPONENT OR2 IS
+        PORT (
+            a, b : IN std_logic;
+            c : OUT std_logic
         );
-    end component;
+    END COMPONENT;
 
-    component XOR2 is
-        port(
-            a, b: in std_logic;
-            c   : out std_logic
+    COMPONENT XOR2 IS
+        PORT (
+            a, b : IN std_logic;
+            c : OUT std_logic
         );
-    end component;
+    END COMPONENT;
 
-    component NOT2 is
-        port(
-            a   : in std_logic;
-            c   : out std_logic
+    COMPONENT NOT2 IS
+        PORT (
+            a : IN std_logic;
+            c : OUT std_logic
         );
-    end component;
+    END COMPONENT;
 
-    component FA is 
-        port(
-            a, b, cin : in std_logic;
-            cout, s   : out std_logic
+    COMPONENT FA2 IS
+        PORT (
+            a, b, cin : IN std_logic;
+            cout, s : OUT std_logic
         );
-    end component;
+    END COMPONENT;
 
-    component FS is 
-        port(
-            a, b, cin : in std_logic;
-            cout, s   : out std_logic
+    COMPONENT FS2 IS
+        PORT (
+            a, b, cin : IN std_logic;
+            cout, s : OUT std_logic
         );
-    end component;
+    END COMPONENT;
 
-    component MUX8TO1 is
-        port(
-            a    : in std_logic_vector(7 downto 0);
-            sel  : in std_logic_vector(2 downto 0);
-            c    : out std_logic
+    COMPONENT MUX2TO1 IS
+        PORT (
+            a, b : IN std_logic;
+            sel : IN std_logic;
+            c : OUT std_logic
         );
-    end component;
-    
-    signal S1, S2, S3, S4, S5, S6, S7 : std_logic;
-    signal O1, O2 : std_logic;
-    
-    begin
-        G1 : AND2 port map(a, b, S1);
-        G2 : OR2  port map(a, b, S2);
-        G3 : XOR2 port map(a, b, S3);
-        G4 : NOT2 port map(a, S4);
-        G5 : NOT2 port map(b, S5);
-        G6 : FA   port map(a, b, cin, O1, S6);
-        G6 : FS   port map(a, b, cin, O2, S7);
+    END COMPONENT;
 
-end behave;
+    COMPONENT MUX8TO1 IS
+        PORT (
+            a : IN std_logic_vector(7 DOWNTO 0);
+            sel : IN std_logic_vector(2 DOWNTO 0);
+            c : OUT std_logic
+        );
+    END COMPONENT;
+
+    SIGNAL S1, S2, S3, S4, S5, S6, S7 : std_logic;
+    SIGNAL O1, O2 : std_logic;
+
+BEGIN
+    G1 : AND2 PORT MAP(a, b, S1);
+    G2 : OR2 PORT MAP(a, b, S2);
+    G3 : XOR2 PORT MAP(a, b, S3);
+    G4 : NOT2 PORT MAP(a, S4);
+    G5 : NOT2 PORT MAP(b, S5);
+    G6 : FA2 PORT MAP(a, b, cin, O1, S6);
+    G7 : FS2 PORT MAP(a, b, cin, O2, S7)
+
+
+END behave;
