@@ -17,6 +17,13 @@ ARCHITECTURE structure OF cell IS
         );
     END COMPONENT;
 
+    COMPONENT AND3 IS
+        PORT (
+            a, b, c : IN std_logic;
+            d : OUT std_logic
+        );
+    END COMPONENT;
+
     COMPONENT OR2 IS
         PORT (
             a, b : IN std_logic;
@@ -69,8 +76,9 @@ ARCHITECTURE structure OF cell IS
     END COMPONENT;
 
     SIGNAL S1, S2, S3, S4, S5, S6, S7 : std_logic;
-    SIGNAL O1, O2 : std_logic;
-    SIGNAL S_MUX : std_logic_vector(7 downto 0); 
+    SIGNAL O1, O2, O3 : std_logic;
+    SIGNAL S_MUX8 : std_logic_vector(7 DOWNTO 0);
+    SIGNAL S_MUX2 : std_logic_vector(2 DOWNTO 0);
 
 BEGIN
     G1 : AND2 PORT MAP(a, b, S1); --and component
@@ -80,16 +88,17 @@ BEGIN
     G5 : NOT2 PORT MAP(b, S5); --not component for 'b' input
     G6 : FA2 PORT MAP(a, b, cin, O1, S6); --full adder component
     G7 : FS2 PORT MAP(a, b, cin, O2, S7); --full subtractor component
-    G8:  MUX8TO1 PORT MAP(S_MUX, sel, s); 
-    
-    S_MUX(0) <= S1;
-    S_MUX(1) <= S2;
-    S_MUX(2) <= S3;
-    S_MUX(3) <= S4;
-    S_MUX(4) <= S5;
-    S_MUX(5) <= S6;
-    S_MUX(6) <= S7;
-    S_MUX(7) <= '0';
+    G8 : MUX8TO1 PORT MAP(S_MUX8, sel, s); --mux 8 to 1 component
+    G9 : AND3 PORT MAP(sel(0), sel(1), sel(2), O3); --check when cout is from FA or FS and select mux 2 to 1
+    G10 : MUX2TO1 PORT MAP(O1, O2, O3, cout); --mux 2 to 1 component
 
+    S_MUX8(0) <= S1;
+    S_MUX8(1) <= S2;
+    S_MUX8(2) <= S3;
+    S_MUX8(3) <= S4;
+    S_MUX8(4) <= S5;
+    S_MUX8(5) <= S6;
+    S_MUX8(6) <= S7;
+    S_MUX8(7) <= '0';
 
 END structure;
