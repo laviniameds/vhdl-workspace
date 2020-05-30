@@ -89,7 +89,7 @@ BEGIN
     G6 : FA2 PORT MAP(a, b, cin, O1, S6); --full adder component
     G7 : FS2 PORT MAP(a, b, cin, O2, S7); --full subtractor component
     G8 : MUX8TO1 PORT MAP(S_MUX8, sel, s); --mux 8 to 1 component
-    G9 : AND3 PORT MAP(sel(0), sel(1), sel(2), O3); --check when cout is from FA or FS and select mux 2 to 1
+    G9 : AND3 PORT MAP(sel(0), sel(1), not sel(2), O3); --check when cout is from FA or FS and select mux 2 to 1
     G10 : MUX2TO1 PORT MAP(O1, O2, O3, cout); --mux 2 to 1 component
 
     S_MUX8(0) <= S1;
