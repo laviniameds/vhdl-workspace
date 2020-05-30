@@ -9,7 +9,7 @@ ENTITY cell IS
     );
 END cell;
 
-ARCHITECTURE behave OF cell IS
+ARCHITECTURE structure OF cell IS
     COMPONENT AND2 IS
         PORT (
             a, b : IN std_logic;
@@ -70,15 +70,26 @@ ARCHITECTURE behave OF cell IS
 
     SIGNAL S1, S2, S3, S4, S5, S6, S7 : std_logic;
     SIGNAL O1, O2 : std_logic;
+    SIGNAL S_MUX : std_logic_vector(7 downto 0); 
 
 BEGIN
-    G1 : AND2 PORT MAP(a, b, S1);
-    G2 : OR2 PORT MAP(a, b, S2);
-    G3 : XOR2 PORT MAP(a, b, S3);
-    G4 : NOT2 PORT MAP(a, S4);
-    G5 : NOT2 PORT MAP(b, S5);
-    G6 : FA2 PORT MAP(a, b, cin, O1, S6);
-    G7 : FS2 PORT MAP(a, b, cin, O2, S7)
+    G1 : AND2 PORT MAP(a, b, S1); --and component
+    G2 : OR2 PORT MAP(a, b, S2); --or component
+    G3 : XOR2 PORT MAP(a, b, S3); --xor component
+    G4 : NOT2 PORT MAP(a, S4); --not component for 'a' input
+    G5 : NOT2 PORT MAP(b, S5); --not component for 'b' input
+    G6 : FA2 PORT MAP(a, b, cin, O1, S6); --full adder component
+    G7 : FS2 PORT MAP(a, b, cin, O2, S7); --full subtractor component
+    G8:  MUX8TO1 PORT MAP(S_MUX, sel, s); 
+    
+    S_MUX(0) <= S1;
+    S_MUX(1) <= S2;
+    S_MUX(2) <= S3;
+    S_MUX(3) <= S4;
+    S_MUX(4) <= S5;
+    S_MUX(5) <= S6;
+    S_MUX(6) <= S7;
+    S_MUX(7) <= '0';
 
 
-END behave;
+END structure;
