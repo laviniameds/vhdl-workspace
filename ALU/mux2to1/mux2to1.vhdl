@@ -11,5 +11,5 @@ end MUX2TO1;
 
 architecture BEHAVE of MUX2TO1 is
 begin
-    c <= a when (sel = '0') else b;
+    c <= a when (sel = '1') else b;
 end BEHAVE;
