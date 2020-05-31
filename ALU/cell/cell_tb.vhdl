@@ -36,6 +36,12 @@ BEGIN
         sel_signal <= "XXX";
         wait for 1 ns;
 
+        a_signal <= '1';
+        b_signal <= '0';
+        cin_signal <= '0';
+        sel_signal <= "XXX";
+        wait for 1 ns;
+
     END PROCESS;
 
 END test;

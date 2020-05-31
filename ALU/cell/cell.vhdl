@@ -92,13 +92,13 @@ BEGIN
     G9 : AND3 PORT MAP(sel(0), sel(1), sel(2), O3); --check when cout is from FA or FS and select mux 2 to 1
     G10 : MUX2TO1 PORT MAP(O1, O2, O3, cout); --mux 2 to 1 component
 
-    S_MUX8(0) <= S1;
-    S_MUX8(1) <= S2;
-    S_MUX8(2) <= S3;
-    S_MUX8(3) <= S4;
-    S_MUX8(4) <= S5;
-    S_MUX8(5) <= S6;
-    S_MUX8(6) <= S7;
-    S_MUX8(7) <= '0';
+    S_MUX8(7) <= S1; -- 111 = AND
+    S_MUX8(6) <= S2; -- 110 = OR
+    S_MUX8(5) <= S3; -- 101 = XOR
+    S_MUX8(4) <= S4; -- 100 = NOT A
+    S_MUX8(3) <= S5; -- 011 = NOT B
+    S_MUX8(2) <= S6; -- 010 = SUM A + B
+    S_MUX8(1) <= S7; -- 001 = SUB A - B
+    S_MUX8(0) <= '0';
 
 END structure;
