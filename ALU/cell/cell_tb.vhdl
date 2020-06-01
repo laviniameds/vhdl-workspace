@@ -36,12 +36,22 @@ BEGIN
         sel_signal <= "XXX";
         wait for 1 ns;
 
+        --AND
         a_signal <= '1';
-        b_signal <= '0';
+        b_signal <= '1';
         cin_signal <= '0';
-        sel_signal <= "XXX";
+        sel_signal <= "000";
         wait for 1 ns;
 
-    END PROCESS;
+        --SUM 
+        a_signal <= '1';
+        b_signal <= '1';
+        cin_signal <= '0';
+        sel_signal <= "101";
+        wait for 1 ns;
 
+        assert false report "Reached end of test";
+        wait;
+
+    END PROCESS;
 END test;
