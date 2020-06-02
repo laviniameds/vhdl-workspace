@@ -10,5 +10,5 @@ end AND3;
 
 architecture BEHAVE of AND3 is
 begin
-    d <= a and (not b) and c;
+    d <= (not b) and a and c;
 end BEHAVE;
