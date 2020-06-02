@@ -18,7 +18,7 @@ ARCHITECTURE test OF cell_tb IS
     SIGNAL sel_signal : std_logic_vector(2 DOWNTO 0);
 
 BEGIN
-    alu_cell : cell PORT MAP(
+    alu_cell : CELL PORT MAP(
         -- connect ports to signals
         a => a_signal,
         b => b_signal,
@@ -30,10 +30,10 @@ BEGIN
 
     PROCESS BEGIN
 
-        a_signal <= 'X';
-        b_signal <= 'X';
-        cin_signal <= 'X';
-        sel_signal <= "XXX";
+        a_signal <= '0';
+        b_signal <= '0';
+        cin_signal <= '0';
+        sel_signal <= "000";
         wait for 1 ns;
 
         --AND
@@ -41,13 +41,6 @@ BEGIN
         b_signal <= '1';
         cin_signal <= '0';
         sel_signal <= "000";
-        wait for 1 ns;
-
-        --SUM 
-        a_signal <= '1';
-        b_signal <= '1';
-        cin_signal <= '0';
-        sel_signal <= "101";
         wait for 1 ns;
 
         assert false report "Reached end of test";
