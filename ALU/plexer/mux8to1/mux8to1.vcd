@@ -1,0 +1,109 @@
+$date
+  Wed Jun  3 19:31:57 2020
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module mux8to1_tb $end
+$var reg 1 ! a0_signal $end
+$var reg 1 " a1_signal $end
+$var reg 1 # a2_signal $end
+$var reg 1 $ a3_signal $end
+$var reg 1 % a4_signal $end
+$var reg 1 & a5_signal $end
+$var reg 1 ' a6_signal $end
+$var reg 1 ( a7_signal $end
+$var reg 1 ) c_signal $end
+$var reg 3 * sel_signal[2:0] $end
+$scope module alu_mux8to1 $end
+$var reg 1 + a0 $end
+$var reg 1 , a1 $end
+$var reg 1 - a2 $end
+$var reg 1 . a3 $end
+$var reg 1 / a4 $end
+$var reg 1 0 a5 $end
+$var reg 1 1 a6 $end
+$var reg 1 2 a7 $end
+$var reg 3 3 sel[2:0] $end
+$var reg 1 4 c $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+1!
+0"
+0#
+0$
+0%
+0&
+0'
+0(
+1)
+b000 *
+1+
+0,
+0-
+0.
+0/
+00
+01
+02
+b000 3
+14
+#1000000
+0!
+1"
+b001 *
+0+
+1,
+b001 3
+#2000000
+0"
+1#
+b010 *
+0,
+1-
+b010 3
+#3000000
+0#
+1$
+b011 *
+0-
+1.
+b011 3
+#4000000
+0$
+1%
+b100 *
+0.
+1/
+b100 3
+#5000000
+0%
+1&
+b101 *
+0/
+10
+b101 3
+#6000000
+0&
+1'
+b110 *
+00
+11
+b110 3
+#7000000
+0'
+1(
+b111 *
+01
+12
+b111 3
+#8000000
