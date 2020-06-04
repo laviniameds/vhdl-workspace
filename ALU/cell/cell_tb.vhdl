@@ -18,7 +18,7 @@ ARCHITECTURE test OF cell_tb IS
     SIGNAL sel_signal : std_logic_vector(2 DOWNTO 0);
 
 BEGIN
-    alu_cell : CELL PORT MAP(
+    alu_cell : cell PORT MAP(
         -- connect ports to signals
         a => a_signal,
         b => b_signal,

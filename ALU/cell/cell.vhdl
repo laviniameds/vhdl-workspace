@@ -83,10 +83,11 @@ BEGIN
     G2 : OR2 PORT MAP(a, b, S2); --or component
     G3 : XOR2 PORT MAP(a, b, S3); --xor component
     G4 : NOT2 PORT MAP(a, S4); --not component for 'a' input
-    G5 : NOT2 PORT MAP(b, S5); --not component for 'b' input
+    G5 : NOT2 PORT MAP(a, S5); --not component for 'b' input
     G6 : FA2 PORT MAP(a, b, cin, O1, S6); --full adder component
     G7 : FS2 PORT MAP(a, b, cin, O2, S7); --full subtractor component
     G8 : MUX8TO1 PORT MAP(S1, S2, S3, S4, S5, S6, S7, '0', sel, s); --mux 8 to 1 component
     G9 : AND3 PORT MAP(sel(2), sel(1), sel(0), O3); --check when cout is from FA or FS and select mux 2 to 1
     G10 : MUX2TO1 PORT MAP(O1, O2, O3, cout); --mux 2 to 1 component
+
 END structure;
