@@ -3,13 +3,14 @@ use IEEE.std_logic_1164.all;
 
 entity COMPARATOR2 is
     port(
-        a, b, cin : in std_logic;
-        cout, s   : out std_logic
+        a, b : in std_logic;
+        s_equal, s_less, s_greater : out std_logic
     );
 end COMPARATOR2;
 
 architecture BEHAVE of COMPARATOR2 is
 begin
-    s <= (a xor b) xor cin;
-    cout <= (a and b) or (b and cin) or (a and cin);    
+    s_equal <= a xnor b;
+    s_less <= (not a) and b;
+    s_greater <= a and (not b);
 end BEHAVE;
