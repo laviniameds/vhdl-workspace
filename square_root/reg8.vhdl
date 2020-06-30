@@ -1,15 +1,15 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity REG_8_BIT is
+entity REG8 is
     port(
 	data_in: in std_logic_vector(7 downto 0); 
 	clk: in std_logic;
 	data_out: out std_logic_vector(7 downto 0)
     );
-end REG_8_BIT;
+end REG8;
 
-architecture BEHAVE of REG_8_BIT is
+architecture BEHAVE of REG8 is
 begin
 	process(data_in, clk)
 	begin
