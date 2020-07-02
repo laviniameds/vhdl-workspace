@@ -6,7 +6,7 @@ ENTITY square_root IS
 	x : in std_logic_vector(7 downto 0);
 	clk : in std_logic;
 	clk4 : in std_logic;
-	r : out std_logic_vector(7 downto 0)
+	r, s : out std_logic_vector(7 downto 0)
     );
 END square_root;
 
@@ -72,4 +72,5 @@ BEGIN
 	COMP : COMPARATOR8 PORT MAP(x, s_regs, s_comp_equal, s_comp_less, s_comp_greater);  	
 	
 	r <= s_regr;
+	s <= s_regs;
 END structure;
