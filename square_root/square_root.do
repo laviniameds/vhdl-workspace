@@ -7,7 +7,8 @@ vsim square_root_tb
 
 add wave x_signal
 add wave clk_signal
-add wave clk4_signal
+add wave enable_signal
+add wave sel_signal
 add wave r_signal
 
 view wave 
