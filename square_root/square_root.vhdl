@@ -5,7 +5,7 @@ ENTITY square_root IS
     PORT (
 	x : in std_logic_vector(7 downto 0);
 	clk, enable : in std_logic;
-	sel : in std_logic;
+	sel : in std_logic; 
 	r: out std_logic_vector(7 downto 0)
     );
 END square_root;
